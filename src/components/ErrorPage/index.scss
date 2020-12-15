@@ -1,0 +1,33 @@
+.not-found {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+
+  .close-icon {
+    height: 4em;
+    width: 4em;
+    position: absolute;
+    right: 4vw;
+    top: 2vh;
+    cursor: pointer;
+  }
+
+  .loader-top-img {
+    align-self: normal;
+  }
+
+  .loader {
+    position: relative;
+    height: calc(70%);
+    display: flex;
+    align-items: flex-end;
+    img {
+      width: 40vh;
+      height: 40vh;
+      object-fit: cover;
+      object-position: 100% 10vh;
+    }
+  }
+}

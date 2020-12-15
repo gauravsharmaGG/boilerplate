@@ -1,0 +1,9 @@
+@import '~react-pro-sidebar/dist/scss/styles.scss';
+
+.pro-sidebar {
+    position: fixed !important;
+    left: 0;
+    height: 100vh !important;
+    width: 16% !important;
+    min-width: auto;
+}
