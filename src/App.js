@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import ErrorPage from './components/ErrorPage';
 import ErrorBoundary from './components/ErrorPage/ErrorBoundary';
+import { useSelector } from 'react-redux';
 import './App.scss';
 
 const Dashboard = lazy(() =>
@@ -15,8 +16,10 @@ const Dashboard = lazy(() =>
 );
 
 function App() {
+  const isApiLoading = useSelector(state => state.Common.isApiLoading);
   return (
     <Router>
+      {isApiLoading && <Loader />}
       <Suspense fallback={<Loader />}>
         <Switch>
           <Route
