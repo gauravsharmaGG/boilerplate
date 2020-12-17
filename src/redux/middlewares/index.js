@@ -24,7 +24,7 @@ const apiMiddleware = ({ dispatch }) => next => action => {
   } = action.payload;
   const dataOrParams = ['GET', 'DELETE'].includes(method) ? 'params' : 'data';
   const reduxStore = store.getState();
-  const jwtToken = get(reduxStore, 'User.jwtAccessToken');
+  const jwtToken = get(reduxStore, 'user.jwtAccessToken');
 
   // axios default configs
   axios.defaults.baseURL = process.env.REACT_APP_BASE_URL || '';
