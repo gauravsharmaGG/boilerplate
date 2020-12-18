@@ -1,4 +1,4 @@
-import React from 'react'; // , { useEffect }
+import React, { useEffect } from 'react'; // , { useEffect }
 import {
   Container,
   Row,
@@ -10,7 +10,7 @@ import {
 } from 'react-bootstrap';
 import { withRouter } from 'react-router';
 import Sidebar from '../Sidebar';
-import { getUsersData } from '../../redux/action/Dashboard';
+import { getUsersData, setUserJWT } from '../../redux/action/Dashboard';
 import { useDispatch, useSelector } from 'react-redux';
 
 import './index.scss';
@@ -19,9 +19,9 @@ const Dash = (props) => {
   const dispatch = useDispatch();
 
   /************ In case API needs to be called on Mounting */
-  //   useEffect(() => {
-  //     dispatch(getUsersData());
-  //   }, [dispatch]);
+    useEffect(() => {
+      dispatch(setUserJWT());
+    }, [dispatch]);
 
   /************ In case verify whether users data is available */
   const users = useSelector((state) => state.user.users);
@@ -29,14 +29,15 @@ const Dash = (props) => {
   //       !users && dispatch(getUsersData());
   //     }, [users, dispatch]);
 
-  const getUsers = () => !users && dispatch(getUsersData());
+  const getUsers = () => !users && dispatch(getUsersData(onSuccess));
 
+  const onSuccess = () => {alert('abc')};
   return (
     <>
       <Container fluid>
         <Row>
           <Col xs={2} id='sidebar-wrapper'>
-            <Sidebar showBackground={true} />
+            {/* <Sidebar showBackground={true} /> */}
           </Col>
           <Col xs={10} id='page-content-wrapper'>
             this is the dashboard component

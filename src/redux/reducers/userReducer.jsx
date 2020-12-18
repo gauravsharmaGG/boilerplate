@@ -3,6 +3,7 @@ import types from '../types';
 const initialState = {
   jwtAccessToken: '',
   users: false,
+  data: false,
 };
 
 const users = (state = initialState, action) => {
@@ -17,6 +18,12 @@ const users = (state = initialState, action) => {
         return {
           ...state,
           users,
+        };
+      case types.SOME_TEST_DATA:
+        const { data } = action.payload;
+        return {
+          ...state,
+          data,
         };
     default:
       return state;
